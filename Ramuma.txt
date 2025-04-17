@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laidojimo namai „Ramuma“</title>
+    <script src="https://unpkg.com/i18next@21.6.14/dist/umd/i18next.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #1e1e1e;
+            color: #f1f1f1;
+        }
+        header, footer {
+            background-color: #111;
+            padding: 20px;
+            text-align: center;
+        }
+        nav {
+            background-color: #222;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .nav-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            width: 100%;
+        }
+        nav a {
+            color: #ccc;
+            margin: 0 15px;
+            text-decoration: none;
+            padding: 10px;
+        }
+        nav a:hover {
+            color: #fff;
+        }
+        section {
+            padding: 30px;
+        }
+        .language-selector {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+        }
+        .language-selector button {
+            margin: 0 2px;
+            padding: 5px 10px;
+            background: #333;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+        .call-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px;
+            border: none;
+            border-radius: 50%;
+            font-size: 18px;
+            cursor: pointer;
+        }
+        .call-button:hover {
+            background-color: #45a049;
+        }
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+        .bar {
+            height: 3px;
+            width: 25px;
+            background-color: white;
+            margin: 3px 0;
+        }
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .hamburger {
+                display: flex;
+            }
+        }
+        img.section-image {
+            max-width: 100%;
+            height: auto;
+            margin: 20px 0;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1 data-i18n="title">Laidojimo namai „Ramuma“</h1>
+</header>
+
+<nav>
+    <div class="hamburger" onclick="toggleMenu()">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>
+    <div class="nav-links" id="navLinks">
+        <a href="#home" data-i18n="home">Pagrindinis</a>
+        <a href="#about" data-i18n="about">Apie mus</a>
+        <a href="#services" data-i18n="services">Paslaugos</a>
+        <a href="#help" data-i18n="help">Pagalba ir DUK</a>
+    </div>
+</nav>
+
+<div class="language-selector">
+    <button onclick="changeLanguage('lt')">LT</button>
+    <button onclick="changeLanguage('en')">EN</button>
+    <button onclick="changeLanguage('ru')">RU</button>
+    <button onclick="changeLanguage('pl')">PL</button>
+    <button onclick="changeLanguage('ua')">UA</button>
+</div>
+
+<section id="home">
+    <h2 data-i18n="home">Pagrindinis</h2>
+    <img src="https://source.unsplash.com/featured/?funeral" alt="Pagrindinis" class="section-image">
+    <p data-i18n="homeText">Teikiame visas laidojimo paslaugas su pagarba, rūpesčiu ir profesionalumu. Dirbame visą parą.</p>
+</section>
+
+<section id="about">
+    <h2 data-i18n="about">Apie mus</h2>
+    <img src="https://source.unsplash.com/featured/?memorial" alt="Apie mus" class="section-image">
+    <p data-i18n="aboutText">Laidojimo namai „Ramuma“ – tai daugiau nei 10 metų patirtį turinti įmonė, orientuota į prieinamą kainą ir kokybę.</p>
+</section>
+
+<section id="services">
+    <h2 data-i18n="services">Paslaugos</h2>
+    <img src="https://source.unsplash.com/featured/?coffin" alt="Paslaugos" class="section-image">
+    <ul>
+        <li data-i18n="s1">Laidotuvių organizavimas</li>
+        <li data-i18n="s2">Kremavimas</li>
+        <li data-i18n="s3">Palaikų pervežimas Lietuvoje ir užsienyje</li>
+        <li data-i18n="s4">Karsto paruošimas ir laidojimas</li>
+        <li data-i18n="s5">Atsisveikinimo ceremonijos</li>
+        <li data-i18n="s6">Kapavietės tvarkymas</li>
+        <li data-i18n="s7">Psichologinė pagalba</li>
+    </ul>
+</section>
+
+<section id="help">
+    <h2 data-i18n="help">Pagalba ir DUK</h2>
+    <img src="https://source.unsplash.com/featured/?help" alt="Pagalba" class="section-image">
+    <p data-i18n="helpText">Jeigu mirė žmogus – skambinkite 112 ir susisiekite su mumis: +370 60399400</p>
+</section>
+
+<footer>
+    <p data-i18n="contact">Kontaktai: Info@laidotuves.lt | Tel.: +370 60399400 | Vilniaus g. 5, Mičkūnai</p>
+    <p>&copy; 2025 <span data-i18n="footer">Laidojimo namai „Ramuma“. Visos teisės saugomos.</span></p>
+</footer>
+
+<a href="tel:+37060399400" class="call-button">📞</a>
+
+<script>
+    const translations = {
+        lt: {
+            title: "Laidojimo namai „Ramuma“",
+            home: "Pagrindinis",
+            about: "Apie mus",
+            services: "Paslaugos",
+            help: "Pagalba ir DUK",
+            homeText: "Teikiame visas laidojimo paslaugas su pagarba, rūpesčiu ir profesionalumu. Dirbame visą parą.",
+            aboutText: "Laidojimo namai „Ramuma“ – tai daugiau nei 10 metų patirtį turinti įmonė, orientuota į prieinamą kainą ir kokybę.",
+            helpText: "Jeigu mirė žmogus – skambinkite 112 ir susisiekite su mumis: +370 60399400",
+            contact: "Kontaktai: Info@laidotuves.lt | Tel.: +370 60399400 | Vilniaus g. 5, Mičkūnai",
+            footer: "Laidojimo namai „Ramuma“. Visos teisės saugomos.",
+            s1: "Laidotuvių organizavimas",
+            s2: "Kremavimas",
+            s3: "Palaikų pervežimas Lietuvoje ir užsienyje",
+            s4: "Karsto paruošimas ir laidojimas",
+            s5: "Atsisveikinimo ceremonijos",
+            s6: "Kapavietės tvarkymas",
+            s7: "Psichologinė pagalba"
+        },
+        en: {
+            title: "Ramuma Funeral Home",
+            home: "Home",
+            about: "About us",
+            services: "Services",
+            help: "Help & FAQ",
+            homeText: "We provide all funeral services with respect, care, and professionalism. Available 24/7.",
+            aboutText: "Ramuma Funeral Home – over 10 years of experience offering affordable and high-quality services.",
+            helpText: "If someone has passed – call 112 and contact us: +370 60399400",
+            contact: "Contact: Info@laidotuves.lt | Tel.: +370 60399400 | Vilniaus g. 5, Mičkūnai",
+            footer: "Ramuma Funeral Home. All rights reserved.",
+            s1: "Funeral organization",
+            s2: "Cremation",
+            s3: "Body transport in Lithuania and abroad",
+            s4: "Casket preparation and burial",
+            s5: "Farewell ceremonies",
+            s6: "Grave site maintenance",
+            s7: "Psychological support"
+        }
+        // Add ru, pl, ua translations similarly
+    };
+
+    function changeLanguage(lang) {
+        const texts = document.querySelectorAll('[data-i18n]');
+        texts.forEach(el => {
+            const key = el.getAttribute('data-i18n');
+            if (translations[lang] && translations[lang][key]) {
+                el.innerText = translations[lang][key];
+            }
+        });
+    }
+
+    function toggleMenu() {
+        document.getElementById('navLinks').classList.toggle('active');
+    }
+</script>
+
+</body>
+</html>
